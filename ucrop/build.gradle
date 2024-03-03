@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 ext {
     PUBLISH_GROUP_ID = 'com.github.krokyze'
-    PUBLISH_VERSION = '2.2.8'
+    PUBLISH_VERSION = '2.2.9'
     PUBLISH_ARTIFACT_ID = 'ucropnedit'
 }
 
