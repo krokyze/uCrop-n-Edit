@@ -26,8 +26,8 @@ using namespace cimg_library;
 #define SAVE_FORMAT_JPEG 0
 #define SAVE_FORMAT_PNG  1
 
-JNIEXPORT jboolean JNICALL Java_com_yalantis_ucrop_task_BitmapCropTask_cropCImg
-    (JNIEnv *env, jobject obj,
+extern "C" JNIEXPORT jboolean JNICALL Java_com_yalantis_ucrop_task_BitmapCropTask_cropCImg
+    (JNIEnv *env, jclass obj,
     jstring pathSource, jstring pathResult,
     jint left, jint top, jint width, jint height, jfloat angle, jfloat resizeScale,
     jint format, jint quality,

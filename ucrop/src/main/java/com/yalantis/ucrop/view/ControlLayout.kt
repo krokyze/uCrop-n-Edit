@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import com.yalantis.ucrop.R
+import androidx.core.view.isVisible
 
 
 /**
@@ -62,9 +63,8 @@ class ControlLayout @JvmOverloads constructor(context: Context, attrs: Attribute
 
         val width = MeasureSpec.getSize(widthMeasureSpec)
         val childCount = (0 until linearLayout.childCount)
-                .map { linearLayout.getChildAt(it) }
-                .filter { it.visibility == View.VISIBLE }
-                .count()
+            .map { linearLayout.getChildAt(it) }
+            .count { it.isVisible }
 
         var childWidth = minChildWidth
 

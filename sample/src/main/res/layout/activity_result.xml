@@ -9,11 +9,12 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="?colorAccent"
+        android:minHeight="?attr/actionBarSize"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="@string/format_crop_result_d_d"
-        app:titleTextColor="@android:color/white"/>
+        app:titleTextColor="@android:color/white" />
 
     <com.yalantis.ucrop.view.UCropView
         android:id="@+id/ucrop"

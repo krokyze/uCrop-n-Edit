@@ -10,15 +10,15 @@
 
 1. Include the library as a local library project.
 
-	```
-	allprojects {
-	   repositories {
-	      mavenCentral()
-	   }
-	}
-	```
+   ```
+   allprojects {
+      repositories {
+         mavenCentral()
+      }
+   }
+   ```
 
-    ``` implementation 'com.github.krokyze:ucropnedit:2.2.9' ```
+   `implementation 'com.github.krokyze:ucropnedit:2.2.9'`
 
 2. To use uCrop’n’Edit, you can follow the exact same methods as for uCrop: <a href="https://github.com/Yalantis/uCrop#usage">Usage</a>
 
@@ -36,14 +36,17 @@ Massive thanks to guys from Yalantis for open sourcing this great library!
 
 ### Version 2.2.6-2 (based on uCrop 2.2.6)
 
-  * Brightness feature
-  * Contrast feature
-  * Saturation feature
-  * Sharpness feature (supported for devices with >= API 17)
+- Brightness feature
+- Contrast feature
+- Saturation feature
+- Sharpness feature (supported for devices with >= API 17)
 
 ## License
 
     Copyright 2017, Yalantis
+
+    Software doesn't collect, store or transfer data to Yalantis or third parties.
+    Emplacement of this Software is carried out locally at device.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

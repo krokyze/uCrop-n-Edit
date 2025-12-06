@@ -247,13 +247,11 @@ public class BitmapCropTask extends AsyncTask<Void, Void, Throwable> {
                 || mCurrentAngle != 0;
     }
 
-    @SuppressWarnings("JniMissingFunction")
-    native public static boolean
-    cropCImg(String inputPath, String outputPath,
-             int left, int top, int width, int height,
-             float angle, float resizeScale,
-             int format, int quality,
-             int exifDegrees, int exifTranslation) throws IOException, OutOfMemoryError;
+    native public static boolean cropCImg(String inputPath, String outputPath,
+                                          int left, int top, int width, int height,
+                                          float angle, float resizeScale,
+                                          int format, int quality,
+                                          int exifDegrees, int exifTranslation) throws IOException, OutOfMemoryError;
 
     @Override
     protected void onPostExecute(@Nullable Throwable t) {

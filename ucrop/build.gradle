@@ -8,10 +8,11 @@ ext {
 }
 
 android {
-    compileSdk 33
+    compileSdk 36
+    namespace = "com.yalantis.ucrop"
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 33
+        minSdkVersion 21
+        targetSdkVersion 36
         versionCode 27
         versionName PUBLISH_VERSION
 
@@ -27,18 +28,24 @@ android {
             consumerProguardFiles 'proguard-consumer-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    buildFeatures {
+        buildConfig true
     }
-    lintOptions {
-        abortOnError false
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     resourcePrefix 'ucrop_'
 
     sourceSets.main {
         jni.srcDirs = []
+    }
+    lint {
+        abortOnError false
     }
 
 }
@@ -48,8 +55,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${androidx_appcompat_version}"
     implementation "androidx.exifinterface:exifinterface:${androidx_exifinterface_version}"
     implementation "androidx.transition:transition:${androidx_transition_version}"
-    // OkHttp3 versions above 3.12.x don't support pre-Lollipop Android versions (API 21)
-    implementation "com.squareup.okhttp3:okhttp:3.12.13"
+    implementation "com.squareup.okhttp3:okhttp:${okhttp_version}"
 }
 
 apply from: 'publish.gradle'

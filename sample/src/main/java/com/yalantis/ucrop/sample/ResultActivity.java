@@ -29,12 +29,17 @@ import java.nio.channels.FileChannel;
 import java.util.Calendar;
 import java.util.List;
 
+import androidx.activity.EdgeToEdge;
+import androidx.activity.SystemBarStyle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
@@ -57,7 +62,20 @@ public class ResultActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this, SystemBarStyle.dark(Color.TRANSPARENT), SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT));
         setContentView(R.layout.activity_result);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.toolbar), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            view.setPaddingRelative(insets.left, insets.top, insets.right, 0);
+            return windowInsets;
+        });
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.ucrop), (view, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            view.setPaddingRelative(insets.left, 0, insets.right, insets.bottom);
+            return windowInsets;
+        });
+
         Uri uri = getIntent().getData();
         if (uri != null) {
             try {
